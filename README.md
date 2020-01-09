@@ -2,9 +2,9 @@
 This script retrieves the master validation keys from a published UNL, then queries multiple specified API (typically the [Ripple Data API v2]) endpoints for the domains associated with the UNL keys. The purpose of querying two endpoints is simply to overcome the issue with the Data API failing to return the domain names for some validators via the `validators` endpoint.
 
 ## Required Packages
-`requests` - Used to retrieve the encoded UNL
-[`parse_unl`] - Used to parse published XRPL UNLs
-`ecdsa` - required for `parse_unl`
+- `requests` - Used to retrieve the encoded UNL
+- [`parse_unl`] - Used to parse published XRPL UNLs
+- `ecdsa` - required for `parse_unl`
 
 ## Use
 This has been tested in Python version 3.7. Feedback on testing with other versions is appreciated.
