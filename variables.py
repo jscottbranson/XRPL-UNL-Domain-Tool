@@ -4,6 +4,12 @@ Variables for the websocket and SQL connections.
 import logging
 
 LOG_LEVEL = logging.WARN
+LOG_FILE = "log/unl_domain_tool.log"
+
+# Time (in seconds) to sleep between queries.
+SLEEP = 30
+#Time (in seconds) to sleep before trying to recover from an error.
+SLEEP_ERROR = 30
 
 UNL_ADDRESS = "https://vl.ripple.com"
 

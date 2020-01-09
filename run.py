@@ -15,7 +15,7 @@ from parse_unl import unl_parser
 
 logging.basicConfig(
     level=variables.LOG_LEVEL,
-    filename="log/agreement_parser.log",
+    filename=variables.LOG_FILE,
     datefmt="%Y-%m-%d %H:%M:%S",
     format="%(asctime)s %(levelname)s %(module)s - %(funcName)s: %(message)s",
 )
@@ -28,7 +28,7 @@ def restart_program():
     restarts.
     '''
     logging.critical("Something went wrong, and the program restarted itself. Perhaps a URL was unreachable?")
-    time.sleep(20)
+    time.sleep(variables.SLEEP_ERROR)
 
 def retrieve_from(address):
     '''
@@ -163,6 +163,6 @@ def fetch_unl():
 try:
     while True:
         fetch_unl()
-        time.sleep(30)
+        time.sleep(variables.SLEEP)
 except KeyboardInterrupt:
     sys.exit(1)
