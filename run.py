@@ -53,9 +53,9 @@ def get_unl_master_keys(master_keys):
     unl = json.loads(unl_parser(variables.UNL_ADDRESS))
 
     for i in unl['public_validation_keys']:
-        if i['master'] not in master_keys:
-            master_keys.update({i['master']: ''})
-        unl_master_keys.append(i['master'])
+        if i not in master_keys:
+            master_keys.update({i: ''})
+        unl_master_keys.append(i)
 
     for i in master_keys:
         if i not in unl_master_keys:
@@ -152,7 +152,7 @@ def fetch_unl():
     domains = get_individual_validator_report(domains)
 
     output = {
-        'status': 'success',
+        'status': 'Success',
         'updated_time': time.time(),
         'unl_length': len(unl_master_keys),
         'results_length': len(domains),

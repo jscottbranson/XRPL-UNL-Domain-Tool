@@ -1,15 +1,17 @@
 # XRPL-UNL-Domain-Retriever
 This script retrieves the master validation keys from a published UNL, then queries multiple specified API (typically the [Ripple Data API v2]) endpoints for the domains associated with the UNL keys. The purpose of querying two endpoints is simply to overcome the issue with the Data API failing to return the domain names for some validators via the `validators` endpoint.
 
+## Example Endpoint
+The output of this script is available at: [https://rabbitkick.club/api/domain_map.json]
+
 ## Required Packages
 - `requests` - Used to retrieve the encoded UNL
-- [`parse_unl`] - Used to parse published XRPL UNLs
-- `ecdsa` - required for `parse_unl`
+- [`parse_unl`] - Used to parse published XRPL UNLs (`wget https://raw.githubusercontent.com/crypticrabbit/xrpl_unl_parser/master/parse_unl.py`)
 
 ## Use
-This has been tested in Python version 3.7. Feedback on testing with other versions is appreciated.
+This has been tested with Python versions 3.7 and 3.8. Feedback on testing with other versions is appreciated.
 
-The most simple way to interact with the program is to configure `variables.py` then `python run.py`.
+The simplest way to interact with the program is to configure `variables.py` then `python run.py`.
 Keyboard interrupt will exit the program.
 
 
@@ -33,6 +35,7 @@ GNU GPLv3
 ## Contact
 Visit me at [https://rabbitkick.club] or on Twitter [@xrpl_rabbit].
 
+[https://rabbitkick.club/api/domain_map.json]:https://rabbitkick.club/api/domain_map.json
 [Ripple Data API v2]:https://xrpl.org/data-api.html
 [`parse_unl`]:https://github.com/crypticrabbit/xrpl_unl_parser
 [https://rabbitkick.club]:https://rabbitkick.club
