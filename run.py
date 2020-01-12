@@ -1,7 +1,5 @@
 '''
 Brings all the functions together to make the code run.
-
-To-do:
 '''
 import sys
 import time
@@ -165,4 +163,4 @@ try:
         fetch_unl()
         time.sleep(variables.SLEEP)
 except KeyboardInterrupt:
-    sys.exit(1)
+    sys.exit(0)

@@ -27,7 +27,7 @@ While running, a JSON file is created with the following keys:
 - `https://vl.coil.com`
 
 ## Issues
-This code is hastily written to fill a few specific needs that I have, so it likely has issues. Better error handling is needed, and the script will not update the file if it fails (hence the "status" result is basically pointless).
+This code is hastily written to fill a few specific needs that I have, so it likely has issues. Better error handling is needed, and the script will not update the file if it fails (hence the "status" result is basically pointless). However, since the primary purpose of this script is to provide data for various other scripts I hastily write, it seems ideal to have the previous successful run's data available, rather than just a JSON object with error details.
 
 ## License
 GNU GPLv3
