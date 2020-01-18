@@ -1,5 +1,6 @@
 '''
 Brings all the functions together to make the code run.
+
 '''
 import sys
 import time
@@ -55,7 +56,9 @@ def get_unl_master_keys(master_keys):
             master_keys.update({i: ''})
         unl_master_keys.append(i)
 
-    for i in master_keys:
+    # Check to see if any master validation keys were deleted, and remove those keys from the list
+    master_keys_old = master_keys
+    for i in master_keys_old:
         if i not in unl_master_keys:
             del master_keys[i]
 
