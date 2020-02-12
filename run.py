@@ -57,7 +57,7 @@ def get_unl_master_keys(master_keys):
         unl_master_keys.append(i)
 
     # Check to see if any master validation keys were deleted, and remove those keys from the list
-    for i in master_keys.keys():
+    for i in list(master_keys.keys()):
         if i not in unl_master_keys:
             del master_keys[i]
 
