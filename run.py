@@ -137,7 +137,7 @@ def fetch_unl():
     try:
         unl_master_keys = get_unl_master_keys(keys)
         logging.info("Successfully retrieved master keys from the specified UNL.")
-        logging.info("There are " + str(len(unl_master_keys)) + " validators in the UNL.")
+        logging.info(f"There are {len(unl_master_keys)} validators in the UNL.")
     except () as error:
         logging.critical(error, "Error retrieving the UNL")
         restart_program()
@@ -145,20 +145,20 @@ def fetch_unl():
     try:
         domains = get_domains(unl_master_keys)
         logging.info("Successfully retrieved the domain list from the Data API.")
+
+        domains = get_individual_validator_report(domains)
+
+        output = {
+            'status': 'Success',
+            'updated_time': time.time(),
+            'unl_length': len(unl_master_keys),
+            'results_length': len(domains),
+            'mappings': domains,
+        }
+        write_json_file(output)
     except () as error:
         logging.critical(error, "Error retrieving the domain list from the Data API.")
         restart_program()
-
-    domains = get_individual_validator_report(domains)
-
-    output = {
-        'status': 'Success',
-        'updated_time': time.time(),
-        'unl_length': len(unl_master_keys),
-        'results_length': len(domains),
-        'mappings': domains,
-    }
-    write_json_file(output)
 
 try:
     while True:
