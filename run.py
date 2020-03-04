@@ -156,8 +156,8 @@ def fetch_unl():
             'mappings': domains,
         }
         write_json_file(output)
-    except () as error:
-        logging.critical(error, "Error retrieving the domain list from the Data API.")
+    except (TypeError, ValueError) as error:
+        logging.critical(f"Error retrieving the domain list from the Data API: {error}")
         restart_program()
 
 try:
