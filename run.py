@@ -93,11 +93,14 @@ def get_individual_validator_report(domains):
     even if it isn't available from the `validators` endpoint (that was tried in the
     `get_domains` function.
     '''
-    for i in domains:
-        if not domains[i]:
-            address = variables.VALIDATOR_API_DOMAIN_ADDRESS + i
-            response = retrieve_from(address)
-            domains[i] = response['domain']
+    try:
+        for i in domains:
+            if not domains[i]:
+                address = variables.VALIDATOR_API_DOMAIN_ADDRESS + i
+                response = retrieve_from(address)
+                domains[i] = response['domain']
+    except TypeError as error:
+        logging.critical(f"Error attempting to iterate domain list: {error}")
     return domains
 
 def open_json_file():
@@ -146,7 +149,9 @@ def fetch_unl():
         domains = get_domains(unl_master_keys)
         logging.info("Successfully retrieved the domain list from the Data API.")
 
-        domains = get_individual_validator_report(domains)
+        # For some reasons 'domains' is occasionally 'NoneType', which causes an error.
+        if domains:
+            domains = get_individual_validator_report(domains)
 
         output = {
             'status': 'Success',
