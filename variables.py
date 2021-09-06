@@ -11,7 +11,7 @@ SLEEP = 30
 #Time (in seconds) to sleep before trying to recover from an error.
 SLEEP_ERROR = 30
 
-UNL_ADDRESS = "https://vl.ripple.com"
+UNL_ADDRESS = "https://vl.xrplf.org"
 
 DATA_API_DOMAINS_ADDRESS = "https://data.ripple.com/v2/network/validators?format=json"
 
