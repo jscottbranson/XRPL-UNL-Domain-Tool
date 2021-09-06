@@ -1,9 +1,6 @@
 # XRPL-UNL-Domain-Retriever
 This script retrieves the master validation keys from a published UNL, then queries multiple specified API (typically the [Ripple Data API v2]) endpoints for the domains associated with the UNL keys. The purpose of querying two endpoints is simply to overcome the issue with the Data API failing to return the domain names for some validators via the `validators` endpoint.
 
-## Example Endpoint
-The output of this script is available at: [https://rabbitkick.club/api/domain_map.json]
-
 ## Required Packages
 - `requests` - Used to retrieve the encoded UNL
 - [`parse_unl`] - Used to parse published XRPL UNLs (`wget https://raw.githubusercontent.com/crypticrabbit/xrpl_unl_parser/master/parse_unl.py`)
@@ -23,6 +20,7 @@ While running, a JSON file is created with the following keys:
 - `mappings`: A dictionary with the 'master validation key' : 'domain' mappings.
 
 ## Known Validator List Sites
+- `https://vl.xrplf.org`
 - `https://vl.ripple.com`
 - `https://vl.coil.com`
 
